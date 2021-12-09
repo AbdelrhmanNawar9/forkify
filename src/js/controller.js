@@ -133,6 +133,7 @@ const init = function () {
   addRecipeView.addHandlerUpload(controlAddRecipe);
   console.log('Welcome');
   console.log('aaa');
+  console.log('here we are in the new feature branch ');
 };
 
 init();
