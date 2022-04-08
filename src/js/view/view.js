@@ -16,6 +16,8 @@ export class View {
   update(data) {
     this._data = data;
     const newMarkup = this._generateMarkup();
+
+    // create a DocumentFragment from a text that contains html tags(HTML-markup-CODE )
     const newDOM = document.createRange().createContextualFragment(newMarkup);
     const newElements = Array.from(newDOM.querySelectorAll('*'));
     const curElements = Array.from(this._parentElement.querySelectorAll('*'));
@@ -28,7 +30,8 @@ export class View {
       if (
         !newEl.isEqualNode(curEl) &&
         newEl.firstChild?.nodeValue.trim() !== '' // to eleminate containers and only choose elements that contain text directly
-        // firstChild is textnode and nodeValue return the text content if the type of the node is textnode
+
+        // as the container element its first child is textnode and its value is "\n" and by the previous line trim method delete the white spaces from start and end (\n is white space) so if it was a container its firstChild nodeValue will be in the end = ''
       ) {
         curEl.textContent = newEl.textContent;
       }

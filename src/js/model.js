@@ -55,6 +55,7 @@ export const loadSearchResults = async function (query) {
         title: rec.title,
         publisher: rec.publisher,
         image: rec.image_url,
+        //trick to conditionally add property key if recipe.key exist
         ...(rec.key && { key: rec.key }),
       };
     });

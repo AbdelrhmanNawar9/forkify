@@ -5,7 +5,7 @@ class PreviewView extends View {
   _parentElement = '';
 
   _generateMarkup() {
-    const id = window.location.hash.slice(1);
+    const id = window.location.hash.slice(1); // to remove # from id
 
     return `<li class="preview">
     <a class="preview__link ${
